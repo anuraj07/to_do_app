@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD TASK.."
+        android:textColor="#0381FF"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="TITLE..."
+        android:textColor="#000"
+        android:textColorHint="#707070"
+        android:textSize="28dp"/>
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DATE"
+        android:textColor="#000"
+        android:textColorHint="#707070"
+        android:textSize="28dp"/>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DESCRIPTION..."
+        android:textColor="#000"
+        android:textColorHint="#707070"
+        android:textSize="28dp"/>
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="ADD"
+        android:textColor="#0381FF"
+        android:textSize="20dp"
+        android:background="@drawable/button_background"/>
+
+</LinearLayout>
