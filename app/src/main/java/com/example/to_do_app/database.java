@@ -1,21 +1,24 @@
 package com.example.to_do_app;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class database extends SQLiteOpenHelper {
 
     private static final String dbname = "mydb";
     private static final int version = 1;
+    private Context context;
     //public Object insertData;
 
-    public  database(Context context) {
+    public database(Context context) {
 
         super(context, dbname, null, version);
-//        this.context = context;
+        this.context = context;
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -49,6 +52,32 @@ public class database extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor res = sqLiteDatabase.rawQuery("SELECT * FROM TODO", null);
         return res;
+    }
+
+    public void deleteOneRow(String row_id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        long result = sqLiteDatabase.delete("TODO", "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Successfully deleted", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void updateData(String row_id, String date, String title, String description) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("TASK_DATE", date);
+        cv.put("TITLE", title);
+        cv.put("DESCRIPTION", description);
+
+        long result = sqLiteDatabase.update("TODO", cv, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed To Update", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Updated Sucessfully", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 

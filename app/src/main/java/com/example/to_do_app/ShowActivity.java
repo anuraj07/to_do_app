@@ -1,12 +1,18 @@
 package com.example.to_do_app;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,11 +39,29 @@ public class ShowActivity extends AppCompatActivity {
         description = new ArrayList<>();
         viewAll();
 
-        customAdapter = new CustomAdapter(ShowActivity.this, id, date, title, description);
+
+
+
+        customAdapter = new CustomAdapter(ShowActivity.this,ShowActivity.this, id, date, title, description);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ShowActivity.this));
 
+//        delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                confirmDialog();
+//            }
+//        });
+
     }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            recreate();
+        }
+    }*/
 
     private void viewAll() {
         Cursor cursor = myDatabase.getAllData();
@@ -52,14 +76,26 @@ public class ShowActivity extends AppCompatActivity {
                 description.add(cursor.getString(3));
             }
         }
-//        StringBuffer buffer = new StringBuffer();
-//        while (cursor.moveToNext()) {
-//            buffer.append(cursor.getString(0)+"\n");
-//            buffer.append("DATE : "+cursor.getString(1)+"\n");
-//            buffer.append("TITLE : "+cursor.getString(2)+"\n");
-//            buffer.append("DESCRIPTION : "+cursor.getString(3)+"\n\n");
-//            TextView textView = (TextView) findViewById(R.id.text);
-//            textView.setText(buffer.toString());
-//        }
+    }
+
+    void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("DELETE "+ title + " ?");
+        builder.setMessage("Are you sure you want to delete " + title + " ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+//                myDatabase.deleteOneRow(id);
+                Toast.makeText(ShowActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(ShowActivity.this, "Not Deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.create().show();
     }
 }

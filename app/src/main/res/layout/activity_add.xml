@@ -23,7 +23,7 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="TITLE..."
+        android:hint="TITLE"
         android:textColor="#000"
         android:textColorHint="#707070"
         android:textSize="28dp"/>
@@ -43,7 +43,7 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="DESCRIPTION..."
+        android:hint="DESCRIPTION"
         android:textColor="#000"
         android:textColorHint="#707070"
         android:textSize="28dp"/>
