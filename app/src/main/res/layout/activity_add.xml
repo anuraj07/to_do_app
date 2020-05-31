@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD TASK.."
+        android:text="ADD TASK"
         android:textColor="#0381FF"
         android:textSize="30dp"
         android:textStyle="bold"/>
@@ -23,30 +23,32 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="TITLE"
+        android:hint="Title"
         android:textColor="#000"
         android:textColorHint="#707070"
-        android:textSize="28dp"/>
+        android:textSize="22dp"/>
 
     <EditText
         android:id="@+id/date"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="DATE"
+        android:drawableRight="@drawable/ic_calender"
+        android:hint="Date"
+        android:inputType="date"
         android:textColor="#000"
         android:textColorHint="#707070"
-        android:textSize="28dp"/>
+        android:textSize="22dp"/>
 
     <EditText
         android:id="@+id/description"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="DESCRIPTION"
+        android:hint="Description"
         android:textColor="#000"
         android:textColorHint="#707070"
-        android:textSize="28dp"/>
+        android:textSize="22dp" />
     <Button
         android:id="@+id/add"
         android:layout_width="match_parent"

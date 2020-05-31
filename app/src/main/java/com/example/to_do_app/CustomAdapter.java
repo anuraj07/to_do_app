@@ -4,7 +4,6 @@ package com.example.to_do_app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -43,8 +41,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-//        this.position = position;
-        holder.id.setText(String.valueOf(id.get(position)));
+//        holder.id.setText(String.valueOf(id.get(position)));
         holder.date.setText(String.valueOf(date.get(position)));
         holder.title.setText(String.valueOf(title.get(position)));
         holder.description.setText(String.valueOf(description.get(position)));
@@ -68,12 +65,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView id, title, date, description;
+        TextView /*id,*/ title, date, description;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.id);
+//            id = itemView.findViewById(R.id.id);
             title = itemView.findViewById(R.id.title);
             date = itemView.findViewById(R.id.date);
             description = itemView.findViewById(R.id.description);

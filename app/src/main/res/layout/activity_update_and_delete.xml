@@ -29,6 +29,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Date"
+        android:drawableRight="@drawable/ic_calender"
         android:textColor="#000"
         android:textColorHint="#707070"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,15 +53,34 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_date"
         app:layout_constraintVertical_bias="0.078" />
 
+
     <Button
         android:id="@+id/update_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
         android:text="Update"
         android:textColor="#0381FF"
-        android:background="@drawable/button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <Button
+        android:id="@+id/delete_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="Delete"
+        android:textColor="#D32F2F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.665"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

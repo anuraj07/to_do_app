@@ -1,6 +1,6 @@
 package com.example.to_do_app;
 
-import android.app.Activity;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,7 +13,7 @@ public class database extends SQLiteOpenHelper {
     private static final String dbname = "mydb";
     private static final int version = 1;
     private Context context;
-    //public Object insertData;
+
 
     public database(Context context) {
 
@@ -25,9 +25,6 @@ public class database extends SQLiteOpenHelper {
 
         String sql = "CREATE TABLE TODO (_id INTEGER PRIMARY KEY AUTOINCREMENT, TASK_DATE DATE, TITLE TEXT, DESCRIPTION REAL)";
         sqLiteDatabase.execSQL(sql);
-        //insert
-
-        //insertData("03/04/2020", "nahana hai", "pakka se", sqLiteDatabase);
 
     }
     boolean insertData(String date, String title, String description) {
